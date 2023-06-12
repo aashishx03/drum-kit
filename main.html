@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="keys">
+      <div class="key">
+        <kbd>A</kbd>
+        <span class="boom">BOOM</span>
+      </div>
+      <div class="key">
+        <kbd>S</kbd>
+        <span>CLAP</span>
+      </div>
+      <div class="key">
+        <kbd>D</kbd>
+        <span>HIHAT</span>
+      </div>
+      <div class="key">
+        <kbd>F</kbd>
+        <span>KICK</span>
+      </div>
+      <div class="key">
+        <kbd>G</kbd>
+        <span>OPENHAT</span>
+      </div>
+      <div class="key">
+        <kbd>H</kbd>
+        <span>RIDE</span>
+      </div>
+      <div class="key">
+        <kbd>J</kbd>
+        <span>SNARE</span>
+      </div>
+      <div class="key">
+        <kbd>K</kbd>
+        <span>TINK</span>
+      </div>
+      <div class="key">
+        <kbd>L</kbd>
+        <span>TOM</span>
+      </div>
+    </div>
+    <audio src="/sounds/boom.wav" id="a">Boom</audio>
+    <audio src="/sounds/clap.wav" id="s">Boom</audio>
+    <audio src="/sounds/hihat.wav" id="d">Boom</audio>
+    <audio src="/sounds/kick.wav" id="f">Boom</audio>
+    <audio src="/sounds/openhat.wav" id="g">Boom</audio>
+    <audio src="/sounds/ride.wav" id="h">Boom</audio>
+    <audio src="/sounds/snare.wav" id="j">Boom</audio>
+    <audio src="/sounds/tink.wav" id="k">Boom</audio>
+    <audio src="/sounds/tom.wav" id="l">Boom</audio>
+
+    <!-- <audio src="/sounds/openhat.wav" id="g">Boom</audio>
+    <audio src="/sounds/ride.wav" id="h">Boom</audio> -->
+    <script>
+      document.addEventListener("keydown", function (e) {
+        console.log(e.key);
+        if (e.key == "a") {
+          document.getElementById("a").play();
+          document.querySelector(".key").classList.add("playing");
+        } else if (e.key == "s") {
+          document.getElementById("s").play();
+        } else if (e.key == "d") {
+          document.getElementById("d").play();
+        } else if (e.key == "f") {
+          document.getElementById("f").play();
+        } else if (e.key == "g") {
+          document.getElementById("g").play();
+        } else if (e.key == "h") {
+          document.getElementById("h").play();
+        } else if (e.key == "j") {
+          document.getElementById("j").play();
+        } else if (e.key == "k") {
+          document.getElementById("k").play();
+        } else if (e.key == "l") {
+          document.getElementById("l").play();
+        }
+      });
+    </script>
+  </body>
+</html>
