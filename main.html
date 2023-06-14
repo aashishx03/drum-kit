@@ -8,39 +8,39 @@
   </head>
   <body>
     <div class="keys">
-      <div class="key">
+      <div class="key ak">
         <kbd>A</kbd>
         <span class="boom">BOOM</span>
       </div>
-      <div class="key">
+      <div class="key sk">
         <kbd>S</kbd>
         <span>CLAP</span>
       </div>
-      <div class="key">
+      <div class="key dk">
         <kbd>D</kbd>
         <span>HIHAT</span>
       </div>
-      <div class="key">
+      <div class="key fk">
         <kbd>F</kbd>
         <span>KICK</span>
       </div>
-      <div class="key">
+      <div class="key gk">
         <kbd>G</kbd>
         <span>OPENHAT</span>
       </div>
-      <div class="key">
+      <div class="key hk">
         <kbd>H</kbd>
         <span>RIDE</span>
       </div>
-      <div class="key">
+      <div class="key jk">
         <kbd>J</kbd>
         <span>SNARE</span>
       </div>
-      <div class="key">
+      <div class="key kk">
         <kbd>K</kbd>
         <span>TINK</span>
       </div>
-      <div class="key">
+      <div class="key lk">
         <kbd>L</kbd>
         <span>TOM</span>
       </div>
@@ -55,32 +55,24 @@
     <audio src="/sounds/tink.wav" id="k">Boom</audio>
     <audio src="/sounds/tom.wav" id="l">Boom</audio>
 
-    <!-- <audio src="/sounds/openhat.wav" id="g">Boom</audio>
-    <audio src="/sounds/ride.wav" id="h">Boom</audio> -->
     <script>
+      const play = function (a) {
+        document.getElementById(`${a}`).play();
+        document.getElementById(`${a}`).currentTime = 0;
+        document.querySelector(`.${a}k`).classList.add("playing");
+      };
+
+      function removeColor(e) {
+        if (e.propertyName !== "transform") return;
+        this.classList.remove("playing");
+      }
+
       document.addEventListener("keydown", function (e) {
-        console.log(e.key);
-        if (e.key == "a") {
-          document.getElementById("a").play();
-          document.querySelector(".key").classList.add("playing");
-        } else if (e.key == "s") {
-          document.getElementById("s").play();
-        } else if (e.key == "d") {
-          document.getElementById("d").play();
-        } else if (e.key == "f") {
-          document.getElementById("f").play();
-        } else if (e.key == "g") {
-          document.getElementById("g").play();
-        } else if (e.key == "h") {
-          document.getElementById("h").play();
-        } else if (e.key == "j") {
-          document.getElementById("j").play();
-        } else if (e.key == "k") {
-          document.getElementById("k").play();
-        } else if (e.key == "l") {
-          document.getElementById("l").play();
-        }
+        play(e.key);
       });
+
+      const keys = document.querySelectorAll(".key");
+      keys.forEach((key) => key.addEventListener("transitionend", removeColor));
     </script>
   </body>
 </html>
